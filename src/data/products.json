@@ -1,0 +1,56 @@
+[
+  {
+    "id": "prd-1001",
+    "name": "Minimal Desk Lamp",
+    "sku": "DL-MN-01",
+    "price": 89.0,
+    "currency": "USD",
+    "status": "in_stock",
+    "category": "Lighting"
+  },
+  {
+    "id": "prd-1002",
+    "name": "Ergonomic Chair Pro",
+    "sku": "CH-ER-22",
+    "price": 449.99,
+    "currency": "USD",
+    "status": "in_stock",
+    "category": "Furniture"
+  },
+  {
+    "id": "prd-1003",
+    "name": "Wireless Keyboard",
+    "sku": "KB-WL-09",
+    "price": 129.5,
+    "currency": "USD",
+    "status": "low_stock",
+    "category": "Accessories"
+  },
+  {
+    "id": "prd-1004",
+    "name": "USB-C Hub 7-in-1",
+    "sku": "HB-USBC-7",
+    "price": 59.0,
+    "currency": "USD",
+    "status": "in_stock",
+    "category": "Accessories"
+  },
+  {
+    "id": "prd-1005",
+    "name": "Studio Monitor 27\"",
+    "sku": "MN-ST-27",
+    "price": 599.0,
+    "currency": "USD",
+    "status": "out_of_stock",
+    "category": "Displays"
+  },
+  {
+    "id": "prd-1006",
+    "name": "Desk Mat Large",
+    "sku": "DM-LG-01",
+    "price": 34.0,
+    "currency": "USD",
+    "status": "in_stock",
+    "category": "Accessories"
+  }
+]
