@@ -1,17 +1,14 @@
 import { HeaderUserMenu } from "@/components/header-user-menu"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { Separator } from "@/components/ui/separator"
+
 import { SidebarTrigger } from "@/components/ui/sidebar"
-import { useLocation } from "react-router-dom"
 
-const routeTitles: Record<string, string> = {
-  "/": "Documents",
-  "/products": "Products",
-}
 
-export function SiteHeader({ title: titleProp }: { title?: string }) {
-  const { pathname } = useLocation()
-  const title = titleProp ?? routeTitles[pathname] ?? ""
+
+
+export function SiteHeader() {
+
+  
 
   return (
     <header className="flex h-(--header-height) shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height)">
