@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components -- entry file */
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, HashRouter } from 'react-router-dom'
@@ -8,22 +9,29 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { TooltipProvider } from '@/components/ui/tooltip'
 
 /**
- * Vite sets BASE_URL with a trailing slash (e.g. `/sadcn-demo/`).
- * React Router's `basename` must NOT have a trailing slash.
- * Mismatch often yields a blank page on GitHub Pages.
+ * GitHub Pages (and many static hosts) do not rewrite URLs to index.html for
+ * client routes. BrowserRouter + basename often still yields a blank screen.
+ * HashRouter uses #/ paths and avoids the server entirely — set
+ * VITE_USE_HASH_ROUTER=0 to force BrowserRouter on a subpath (advanced).
  */
+const base = import.meta.env.BASE_URL
+const useHashRouter =
+  base !== '/' && import.meta.env.VITE_USE_HASH_ROUTER !== '0'
+
 function routerBasename(): string | undefined {
-  const raw = import.meta.env.BASE_URL
-  if (raw === '/') return undefined
-  return raw.endsWith('/') ? raw.slice(0, -1) : raw
+  if (base === '/') return undefined
+  return base.endsWith('/') ? base.slice(0, -1) : base
 }
 
-/** Set VITE_USE_HASH_ROUTER=1 if BrowserRouter still fails on your host (uses #/ routes). */
-const useHashRouter = import.meta.env.VITE_USE_HASH_ROUTER === '1'
 const Router = useHashRouter ? HashRouter : BrowserRouter
 const routerProps = useHashRouter ? {} : { basename: routerBasename() }
 
-createRoot(document.getElementById('root')!).render(
+const rootEl = document.getElementById('root')
+if (!rootEl) {
+  throw new Error('Missing #root element in index.html')
+}
+
+createRoot(rootEl).render(
   <StrictMode>
     <ErrorBoundary>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
