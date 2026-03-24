@@ -1,4 +1,5 @@
 import { HeaderUserMenu } from "@/components/header-user-menu"
+import { ThemeToggle } from "@/components/theme-toggle"
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { useLocation } from "react-router-dom"
@@ -19,7 +20,10 @@ export function SiteHeader({ title: titleProp }: { title?: string }) {
           <SidebarTrigger className="-ml-1" />
           
         </div>
-        <HeaderUserMenu />
+        <div className="flex shrink-0 items-center gap-1">
+          <ThemeToggle />
+          <HeaderUserMenu />
+        </div>
       </div>
     </header>
   )

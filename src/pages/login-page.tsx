@@ -18,6 +18,7 @@ import {
   saveAuthSession,
   saveRememberedEmail,
 } from "@/lib/auth-storage"
+import { ThemeToggle } from "@/components/theme-toggle"
 import { CommandIcon } from "lucide-react"
 import { Navigate, useNavigate } from "react-router-dom"
 
@@ -94,7 +95,10 @@ export function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-muted/80 to-background px-4 py-10">
+    <div className="relative flex min-h-svh flex-col items-center justify-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-muted/80 to-background px-4 py-10">
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
+      </div>
       <div className="flex w-full max-w-[400px] flex-col items-center gap-8">
         <div className="flex items-center gap-2">
           <div className="bg-primary flex size-10 items-center justify-center rounded-full text-primary-foreground">
