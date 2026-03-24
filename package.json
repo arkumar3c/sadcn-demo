@@ -8,8 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "VITE_BASE_PATH=/sadcn-demo/ npm run build && node scripts/gh-pages.mjs && gh-pages -d dist",
-    "preview:pages": "VITE_BASE_PATH=/sadcn-demo/ npm run build && node scripts/gh-pages.mjs && vite preview"
+    "deploy": "npm run build && node scripts/gh-pages.mjs && gh-pages -d dist",
+    "preview:pages": "npm run build && node scripts/gh-pages.mjs && vite preview"
   },
   "homepage": "https://arkumar3c.github.io/sadcn-demo/",
   "dependencies": {

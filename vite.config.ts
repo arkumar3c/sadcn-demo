@@ -8,11 +8,12 @@ import { defineConfig } from 'vite'
 const projectDir = path.dirname(fileURLToPath(import.meta.url))
 
 // https://vite.dev/config/
-// For GitHub Pages project sites, set when deploying: VITE_BASE_PATH=/your-repo-name/
-const base = process.env.VITE_BASE_PATH ?? '/'
-
-export default defineConfig({
-  base,
+// Production: `base: './'` so JS/CSS/favicon resolve relative to index.html.
+// This fixes 404s on GitHub Pages when absolute paths like `/sadcn-demo/assets/...`
+// don't match how the site is actually hosted.
+// Dev server keeps `base: '/'` so `/src/main.tsx` works as usual.
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? './' : '/',
   plugins: [react(), tailwindcss()],
   // Avoid ENOSPC when inotify max_user_watches is exhausted (common on Linux).
   server: { watch: { usePolling: true } },
@@ -21,4 +22,4 @@ export default defineConfig({
       '@': path.resolve(projectDir, 'src'),
     },
   },
-})
+}))
