@@ -15,7 +15,7 @@ const projectDir = path.dirname(fileURLToPath(import.meta.url))
 export default defineConfig(() => ({
   
   plugins: [react(), tailwindcss()],
-  base: "/sadcn-demo/login/", 
+  base: "/sadcn-demo/", 
   // Avoid ENOSPC when inotify max_user_watches is exhausted (common on Linux).
   server: { watch: { usePolling: true } },
   resolve: {
