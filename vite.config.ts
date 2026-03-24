@@ -13,8 +13,9 @@ const projectDir = path.dirname(fileURLToPath(import.meta.url))
 // don't match how the site is actually hosted.
 // Dev server keeps `base: '/'` so `/src/main.tsx` works as usual.
 export default defineConfig(() => ({
-  base: "/sadcn-demo/",
+  
   plugins: [react(), tailwindcss()],
+  base: "/sadcn-demo/login/", 
   // Avoid ENOSPC when inotify max_user_watches is exhausted (common on Linux).
   server: { watch: { usePolling: true } },
   resolve: {
