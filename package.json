@@ -7,8 +7,11 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "VITE_BASE_PATH=/sadcn-demo/ npm run build && node scripts/gh-pages.mjs && gh-pages -d dist",
+    "preview:pages": "VITE_BASE_PATH=/sadcn-demo/ npm run build && node scripts/gh-pages.mjs && vite preview"
   },
+  "homepage": "https://arkumar3c.github.io/sadcn-demo/",
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
     "@dnd-kit/modifiers": "^9.0.0",
