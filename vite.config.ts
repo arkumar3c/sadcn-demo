@@ -12,8 +12,8 @@ const projectDir = path.dirname(fileURLToPath(import.meta.url))
 // This fixes 404s on GitHub Pages when absolute paths like `/sadcn-demo/assets/...`
 // don't match how the site is actually hosted.
 // Dev server keeps `base: '/'` so `/src/main.tsx` works as usual.
-export default defineConfig(({ command }) => ({
-  base: command === 'build' ? './' : '/',
+export default defineConfig(() => ({
+  base: "/sadcn-demo/",
   plugins: [react(), tailwindcss()],
   // Avoid ENOSPC when inotify max_user_watches is exhausted (common on Linux).
   server: { watch: { usePolling: true } },

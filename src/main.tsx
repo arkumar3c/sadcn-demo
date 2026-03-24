@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components -- entry file */
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, HashRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import { ErrorBoundary } from '@/components/error-boundary'
@@ -14,17 +14,17 @@ import { TooltipProvider } from '@/components/ui/tooltip'
  * HashRouter uses #/ paths and avoids the server entirely — set
  * VITE_USE_HASH_ROUTER=0 to force BrowserRouter on a subpath (advanced).
  */
-const base = import.meta.env.BASE_URL
-const useHashRouter =
-  base !== '/' && import.meta.env.VITE_USE_HASH_ROUTER !== '0'
+// const base = import.meta.env.BASE_URL
+// const useHashRouter =
+//   base !== '/' && import.meta.env.VITE_USE_HASH_ROUTER !== '0'
 
-function routerBasename(): string | undefined {
-  if (base === '/') return undefined
-  return base.endsWith('/') ? base.slice(0, -1) : base
-}
+// function routerBasename(): string | undefined {
+//   if (base === '/') return undefined
+//   return base.endsWith('/') ? base.slice(0, -1) : base
+// }
 
-const Router = useHashRouter ? HashRouter : BrowserRouter
-const routerProps = useHashRouter ? {} : { basename: routerBasename() }
+// const Router = useHashRouter ? HashRouter : BrowserRouter
+// const routerProps = useHashRouter ? {} : { basename: routerBasename() }
 
 const rootEl = document.getElementById('root')
 if (!rootEl) {
@@ -35,11 +35,11 @@ createRoot(rootEl).render(
   <StrictMode>
     <ErrorBoundary>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-        <Router {...routerProps}>
+        <HashRouter>
           <TooltipProvider>
             <App />
           </TooltipProvider>
-        </Router>
+        </HashRouter>
       </ThemeProvider>
     </ErrorBoundary>
   </StrictMode>,
